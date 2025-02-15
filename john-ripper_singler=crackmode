@@ -1,0 +1,96 @@
+┌──(dileesha3㉿dileesha)-[~]
+└─$ sudo adduser john
+[sudo] password for dileesha3:                                                                                     
+info: Adding user `john' ...                                                                                       
+info: Selecting UID/GID from range 1000 to 59999 ...                                                               
+info: Adding new group `john' (1001) ...                                                                           
+info: Adding new user `john' (1001) with group `john (1001)' ...                                                   
+info: Creating home directory `/home/john' ...                                                                     
+info: Copying files from `/etc/skel' ...                                                                           
+New password:                                                                                                      
+Retype new password:                                                                                               
+passwd: password updated successfully                                                                              
+Changing the user information for john                                                                             
+Enter the new value, or press ENTER for the default                                                                
+        Full Name []: John                                                                                         
+        Room Number []: 0                                                                                          
+        Work Phone []: 0                                                                                           
+        Home Phone []: 0                                                                                           
+        Other []: 0                                                                                                
+Is the information correct? [Y/n] y                                                                                
+info: Adding new user `john' to supplemental / extra groups `users' ...                                            
+info: Adding user `john' to group `users' ...                                                                      
+
+------------------------------------------------------------------------------------------------------
+┌──(dileesha3㉿dileesha)-[~]                                                                                       
+└─$ sudo cat /etc/passwd                                                                                           
+root:x:0:0:root:/root:/bin/bash                                                                                    
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+dhcpcd:x:100:65534:DHCP Client Daemon,,,:/usr/lib/dhcpcd:/bin/false
+_galera:x:101:65534::/nonexistent:/usr/sbin/nologin
+mysql:x:102:102:MariaDB Server,,,:/nonexistent:/bin/false
+tss:x:103:103:TPM software stack,,,:/var/lib/tpm:/bin/false
+strongswan:x:104:65534::/var/lib/strongswan:/usr/sbin/nologin
+systemd-timesync:x:992:992:systemd Time Synchronization:/:/usr/sbin/nologin
+colord:x:131:132:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+dileesha3:x:1000:1000:dileesha,,,:/home/dileesha3:/bin/bash
+john:x:1001:1001:John,0,0,0,0:/home/john:/bin/bash
+------------------------------------------------------------------------------------------------------
+┌──(dileesha3㉿dileesha)-[~]
+└─$ sudo cat /etc/shadow                                                                                           
+root:!:20129:0:99999:7:::
+daemon:*:20129:0:99999:7:::
+bin:*:20129:0:99999:7:::
+sys:*:20129:0:99999:7:::
+sync:*:20129:0:99999:7:::
+games:*:20129:0:99999:7:::
+man:*:20129:0:99999:7:::
+lp:*:20129:0:99999:7:::
+mail:*:20129:0:99999:7:::
+news:*:20129:0:99999:7:::
+cups-pk-helper:!:20129::::::
+inetsim:!:20129::::::
+nm-openconnect:!:20129::::::
+geoclue:!:20129::::::
+lightdm:!:20129::::::
+statd:!:20129::::::
+saned:!:20129::::::
+polkitd:!*:20129::::::
+rtkit:!:20129::::::
+colord:!:20129::::::
+dileesha3:$y$j9T$TimhiFrc8J2dqkmjDoVAa/$AfZR9Ax1No3UMJ.gyye6p0Qm98hZYEg0ibaMN5pswk1:20129:0:99999:7:::
+john:$y$j9T$EaF2NgCY1ak8kGXJ9KogP1$CRyL00ji8jH2WA3rTYIYJOB3cJIdudIg6MmU/lQk6nB:20133:0:99999:7:::
+---------------------------------------------------------------------------------------------------------------------------------
+┌──(dileesha3㉿dileesha)-[~]                                                                                                                                                                                                                
+└─$ sudo nano pass.txt                                                                                                                                                                                                                      
+------------------------------------------------------------------------------------------------------------
+┌──(dileesha3㉿dileesha)-[~]
+└─$ sudo john --single --format=crypt pass.txt
+Created directory: /root/.john                                                                                      
+Using default input encoding: UTF-8                                                                                 
+Loaded 1 password hash (crypt, generic crypt(3) [?/64])                                                             
+Cost 1 (algorithm [1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]) is 0 for all loaded hashes 
+Cost 2 (algorithm specific iterations) is 1 for all loaded hashes                                                   
+Will run 2 OpenMP threads                                                                                           
+Press 'q' or Ctrl-C to abort, almost any other key for status                                                       
+Almost done: Processing the remaining buffered candidate passwords, if any.                                         
+0g 0:00:00:39 DONE (2025-02-14 14:00) 0g/s 77.48p/s 77.48c/s 77.48C/s 999991923..999991900                          
+Session completed.            
+
