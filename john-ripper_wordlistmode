@@ -1,0 +1,100 @@
+┌──(dileesha3㉿dileesha)-[~]
+└─$ cd /usr/share/wordlists                                                                                       
+
+┌──(dileesha3㉿dileesha)-[/usr/share/wordlists]
+└─$ ls                                                                                                             
+amass  dirbuster   fasttrack.txt  john.lst  metasploit  rockyou.txt  wfuzz
+dirb   dnsmap.txt  fern-wifi      legion    nmap.lst    sqlmap.txt   wifite.txt
+--------------------------------------------------------------------------------------------------
+┌──(dileesha3㉿dileesha)-[/usr/share/wordlists]
+└─$ sudo cat fasttrack.txt                                                                                         
+Spring2017
+Spring2021
+spring2021
+Summer2021
+fall2019
+Winter2019
+winter2019
+princess
+solo
+qwertyuiop
+starwars
+--------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
+┌──(dileesha3㉿dileesha)-[/usr/share/wordlists]
+└─$ sudo adduser divya                                                                                             
+info: Adding user `divya' ...
+info: Selecting UID/GID from range 1000 to 59999 ...
+info: Adding new group `divya' (1003) ...
+info: Adding new user `divya' (1003) with group `divya (1003)' ...
+info: Creating home directory `/home/divya' ...
+info: Copying files from `/etc/skel' ...
+New password: 
+Retype new password: 
+passwd: password updated successfully
+Changing the user information for divya
+Enter the new value, or press ENTER for the default
+        Full Name []: divya
+        Room Number []: 0
+        Work Phone []: 0
+        Home Phone []: 0
+        Other []: 0
+Is the information correct? [Y/n] y
+info: Adding new user `divya' to supplemental / extra groups `users' ...
+info: Adding user `divya' to group `users' ...
+------------------------------------------------------------------------------------------------------
+┌──(dileesha3㉿dileesha)-[/usr/share/wordlists]
+└─$ sudo cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+colord:x:131:132:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+dileesha3:x:1000:1000:dileesha,,,:/home/dileesha3:/bin/bash
+john:x:1001:1001:John,0,0,0,0:/home/john:/bin/bash
+diya:x:1002:1002:,,,:/home/diya:/bin/bash
+divya:x:1003:1003:divya,0,0,0,0:/home/divya:/bin/bash
+------------------------------------------------------------------------------------------------
+┌──(dileesha3㉿dileesha)-[/usr/share/wordlists]
+└─$ sudo cat /etc/shadow                                                                                           
+root:!:20129:0:99999:7:::
+daemon:*:20129:0:99999:7:::
+bin:*:20129:0:99999:7:::
+sys:*:20129:0:99999:7:::
+backup:*:20129:0:99999:7:::
+tcpdump:!:20129::::::
+miredo:!:20129::::::
+_rpc:!:20129::::::
+redis:!:20129::::::
+mosquitto:!:20129::::::
+redsocks:!:20129::::::
+stunnel4:!*:20129::::::
+sshd:!:20129::::::
+geoclue:!:20129::::::
+lightdm:!:20129::::::
+statd:!:20129::::::
+saned:!:20129::::::
+polkitd:!*:20129::::::
+rtkit:!:20129::::::
+colord:!:20129::::::
+dileesha3:$y$j9T$TimhiFrc8J2dqkmjDoVAa/$AfZR9Ax1No3UMJ.gyye6p0Qm98hZYEg0ibaMN5pswk1:20129:0:99999:7:::
+john:$y$j9T$EaF2NgCY1ak8kGXJ9KogP1$CRyL00ji8jH2WA3rTYIYJOB3cJIdudIg6MmU/lQk6nB:20133:0:99999:7:::
+diya:!:20133:0:99999:7:::
+divya:$y$j9T$ejvMFA7u1axHYHgbPziND/$8BIn6jjhjhragQrY.zMW.46A8DK7NxVJT/1lGKeXIC5:20133:0:99999:7:::
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+┌──(dileesha3㉿dileesha)-[/usr/share/wordlists]
+└─$ nano pass.txt                                                                                                  
+
+┌──(dileesha3㉿dileesha)-[/usr/share/wordlists]
+└─$ sudo nano pass.txt                                                                                             
+--------------------------------------------------------------------------------------------------------------------------------------------------
+┌──(dileesha3㉿dileesha)-[/usr/share/wordlists]
+└─$ sudo john --wordlist=/usr/share/wordlists/fasttrack.txt --format=crypt pass.txt
+Using default input encoding: UTF-8
+Loaded 1 password hash (crypt, generic crypt(3) [?/64])
+Cost 1 (algorithm [1:descrypt 2:md5crypt 3:sunmd5 4:bcrypt 5:sha256crypt 6:sha512crypt]) is 0 for all loaded hashes
+Cost 2 (algorithm specific iterations) is 1 for all loaded hashes
+Will run 2 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+solo             (divya)     
+1g 0:00:00:02 DONE (2025-02-14 14:18) 0.3412g/s 89.41p/s 89.41c/s 89.41C/s Summer2010..starwars
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed. 
+----------------------------------------------------------------------------------------------------------------------------------------------------------
